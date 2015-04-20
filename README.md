@@ -1,3 +1,4 @@
+# Build Status
 [![Build Status](https://travis-ci.org/htsili/travis-example.svg?branch=master)](https://travis-ci.org/htsili/travis-example)
 
 # travis-example
