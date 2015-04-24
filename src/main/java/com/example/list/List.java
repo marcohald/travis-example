@@ -42,16 +42,16 @@ public class List {
    */
   private ListNode lastNode;
   /**
-   * The size of the list
+   * The size of the list.
    */
-  private int N;
+  private int size;
 
   /**
    * Constructor creates empty List.
    */
   public List() {
     firstNode = lastNode = null;
-    N = 0;
+    this.size = 0;
   }
 
   /**
@@ -70,7 +70,7 @@ public class List {
       lastNode = node;
     }
 
-    N++;
+    size++;
   }
 
   /**
@@ -89,9 +89,8 @@ public class List {
     if (firstNode.data.equals(item)) {
       removeFromFront();
       return true;
-    }
-    // if the node which contains the item is the tail
-    else if (lastNode.data.equals(item)) {
+      // if the node which contains the item is the tail
+    } else if (lastNode.data.equals(item)) {
       removeFromBack();
       return true;
     } else {
@@ -100,7 +99,7 @@ public class List {
       while (current != lastNode) {
         if (current.nextNode.data.equals(item)) {
           current.nextNode = current.nextNode.nextNode;
-          N--;
+          size--;
           return true;
         }
 
@@ -122,19 +121,18 @@ public class List {
       firstNode = firstNode.nextNode;
     }
 
-    N--;
+    size--;
   }
 
   /**
-   * Returns and removes the data from the list tail
+   * Returns and removes the data from the list tail.
    */
   private void removeFromBack() {
     // update references firstNode and lastNode
     if (firstNode == lastNode) {
       firstNode = lastNode = null;
-    } else
-    // locate new last node
-    {
+      // locate new last node
+    } else {
       ListNode current = firstNode;
 
       // loop while current node does not refer to lastNode
@@ -146,13 +144,13 @@ public class List {
       current.nextNode = null;
     }
 
-    N--;
+    size--;
   }
 
   /**
    * Checks if the given item exists in the list.
    * 
-   * @param item
+   * @param item the element to search for
    * @return true if the item exists
    */
   public boolean contains(Object item) {
@@ -170,7 +168,7 @@ public class List {
   }
 
   /**
-   * Determine whether list is empty
+   * Determine whether list is empty.
    * 
    * @return true if list is empty
    */
@@ -179,16 +177,16 @@ public class List {
   }
 
   /**
-   * Returns the size of the list
+   * Returns the size of the list.
    * 
    * @return list size
    */
   public int size() {
-    return N;
+    return size;
   }
 
   /**
-   * Prints the list's contents
+   * Prints the list's contents.
    */
   public void print() {
     if (isEmpty()) {
