@@ -2,5 +2,9 @@ language: java
 jdk:
   - oraclejdk7
   - openjdk7
+notifications:
+  email:
+    on_success: always # default: change
+    on_failure: always # default: always
 after_success:
   - mvn clean cobertura:cobertura org.eluder.coveralls:coveralls-maven-plugin:report
